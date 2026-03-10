@@ -1,65 +1,181 @@
-import Image from "next/image";
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Sparkles, Video, Zap, Shield, CheckCircle } from "lucide-react"
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="flex flex-col">
+      {/* Hero Section */}
+      <section className="relative py-20 lg:py-32 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+              Generează reclame video
+              <span className="text-primary"> cu AI</span>
+            </h1>
+            <p className="mt-6 text-lg leading-8 text-gray-600 max-w-2xl mx-auto">
+              Creează reclame video profesionale pentru produsele și serviciile tale 
+              în câteva minute. Introdu descrierea, primești scriptul, generezi video-ul.
+            </p>
+            <div className="mt-10 flex items-center justify-center gap-x-6">
+              <Link href="/generate">
+                <Button size="lg" className="text-lg">
+                  <Sparkles className="mr-2 h-5 w-5" />
+                  Începe Gratuit
+                </Button>
+              </Link>
+              <Link href="/pricing">
+                <Button variant="outline" size="lg" className="text-lg">
+                  Vezi Prețuri
+                </Button>
+              </Link>
+            </div>
+            <p className="mt-4 text-sm text-muted-foreground">
+              Prima generare este gratuită cu watermark
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 bg-muted/50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900">
+              Cum funcționează
+            </h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Trei pași simpli pentru a crea reclama ta video
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+            <div className="relative flex flex-col items-center p-6 bg-white rounded-lg shadow-sm">
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-white mb-4">
+                <Zap className="h-6 w-6" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">1. Descrie Produsul</h3>
+              <p className="text-center text-gray-600">
+                Introdu numele și descrierea produsului sau serviciului tău
+              </p>
+            </div>
+            <div className="relative flex flex-col items-center p-6 bg-white rounded-lg shadow-sm">
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-white mb-4">
+                <Sparkles className="h-6 w-6" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">2. Primești Scriptul</h3>
+              <p className="text-center text-gray-600">
+                AI-ul generează un script profesional de reclamă pe care îl poți edita
+              </p>
+            </div>
+            <div className="relative flex flex-col items-center p-6 bg-white rounded-lg shadow-sm">
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-white mb-4">
+                <Video className="h-6 w-6" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">3. Generează Video</h3>
+              <p className="text-center text-gray-600">
+                Transformă scriptul într-un video profesional gata de publicare
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Preview */}
+      <section className="py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900">
+              Prețuri Simple
+            </h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Plătești doar pentru ce folosești
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 max-w-5xl mx-auto">
+            <div className="rounded-lg border bg-card p-6">
+              <h3 className="text-lg font-semibold">Generare Gratuită</h3>
+              <p className="mt-2 text-3xl font-bold">0€</p>
+              <p className="text-muted-foreground">O singură dată</p>
+              <ul className="mt-6 space-y-3">
+                <li className="flex items-center">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  1 video cu watermark
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Script generat de AI
+                </li>
+              </ul>
+            </div>
+            <div className="rounded-lg border bg-card p-6 border-primary">
+              <div className="flex items-center justify-between">
+                <h3 className="text-lg font-semibold">Pachet Starter</h3>
+                <span className="bg-primary text-primary-foreground text-xs px-2 py-1 rounded">Popular</span>
+              </div>
+              <p className="mt-2 text-3xl font-bold">9.99€</p>
+              <p className="text-muted-foreground">50 tokenuri</p>
+              <ul className="mt-6 space-y-3">
+                <li className="flex items-center">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  ~5 video-uri
+                </li>
+                  <li className="flex items-center">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Fără watermark
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Regenerare disponibilă
+                </li>
+              </ul>
+            </div>
+            <div className="rounded-lg border bg-card p-6">
+              <h3 className="text-lg font-semibold">Pachet Pro</h3>
+              <p className="mt-2 text-3xl font-bold">24.99€</p>
+              <p className="text-muted-foreground">150 tokenuri</p>
+              <ul className="mt-6 space-y-3">
+                <li className="flex items-center">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  ~15 video-uri
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Fără watermark
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Suport prioritar
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="text-center mt-8">
+            <Link href="/pricing">
+              <Button variant="outline">Vezi Toate Pachetele</Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-primary text-primary-foreground">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold tracking-tight">
+            Gata să începi?
+          </h2>
+          <p className="mt-4 text-lg opacity-90">
+            Creează prima ta reclamă video gratuită acum
           </p>
+          <div className="mt-8">
+            <Link href="/generate">
+              <Button size="lg" variant="secondary" className="text-lg">
+                <Sparkles className="mr-2 h-5 w-5" />
+                Generează Reclama Ta
+              </Button>
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </section>
     </div>
-  );
+  )
 }
