@@ -1,8 +1,15 @@
 [build]
-builder = "dockerfile"
-dockerfilePath = "Dockerfile"
+builder = "nixpacks"
+
+[build.nixpacks]
+aptPackages = ["openssl"]
 
 [deploy]
-startCommand = ""
+startCommand = "npx prisma migrate deploy && npx prisma generate && npm start"
+healthcheckPath = "/"
+healthcheckTimeout = 100
 restartPolicyType = "on_failure"
-restartPolicyMaxRetries = 3
+restartPolicyMaxRetries = 5
+
+[variables]
+NODE_ENV = "production"
